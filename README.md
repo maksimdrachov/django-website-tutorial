@@ -38,4 +38,28 @@ source DjangoWebsite@3.8/bin/activate
 
 _Lesson 2_
 
+To start server: `python manage.py runserver`
 
+To serve a new homepage we do the following:
+
+1. Add a new http response function in `views.py`
+
+```py
+from django.http import HttpResponse
+
+def index(request):
+    return HttpResponse("Homepage!")
+```
+
+2. Add a new route to `urls.py`
+
+```python
+from . import views
+
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('', views.index, name="index"),
+]
+```
+
+stopped at 13:20
